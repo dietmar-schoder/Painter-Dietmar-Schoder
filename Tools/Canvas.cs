@@ -12,21 +12,25 @@ namespace Painter_Dietmar_Schoder.Tools
         public int EnlargeFactor { get; set; }
         public Bitmap InputBitmap { get; set; }
         public Bitmap Bitmap { get; set; }
+        public DateTime SignedDateTime { get; set; }
+        public Rectangle SignArea { get; set; }
 
         private readonly string _pathAndFileName;
 
-        public Canvas(string inputImagePathFilename, string path, string fileName, int width, int height, int enlargeFactor = 1)
-            : this(path, fileName, width, height, enlargeFactor)
+        public Canvas(string inputImagePathFilename, string path, string fileName, int width, int height, int enlargeFactor, DateTime signedDateTime, Rectangle signArea)
+            : this(path, fileName, width, height, enlargeFactor, signedDateTime, signArea)
         {
             InputBitmap = new Bitmap(inputImagePathFilename);
         }
 
-        public Canvas(string path, string fileName, int width, int height, int enlargeFactor = 1)
+        public Canvas(string path, string fileName, int width, int height, int enlargeFactor, DateTime signedDateTime, Rectangle signArea)
         {
             Width = width;
             Height = height;
             EnlargeFactor = enlargeFactor;
             Bitmap = new Bitmap(width * enlargeFactor, height * enlargeFactor);
+            SignedDateTime = signedDateTime;
+            SignArea = signArea;
             _pathAndFileName = path + fileName;
         }
 
@@ -38,24 +42,21 @@ namespace Painter_Dietmar_Schoder.Tools
 
         public void SignDrawing(Color color1, Color color2)
         {
-            var signedDate = DateTime.UtcNow.AddDays(+4);
+            var sf = new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center };
+            var signArea1 = new Rectangle(SignArea.X + 1, SignArea.Y + 1, SignArea.Width, SignArea.Height);
             using Graphics gr = Graphics.FromImage(Bitmap);
-            gr.SmoothingMode = SmoothingMode.AntiAlias;
+            gr.SmoothingMode = SmoothingMode.HighQuality;
             using var whiteBrush = new SolidBrush(color1);
             gr.DrawString
             (
-                $"schoder {signedDate:yyyyMMddHHmmss}",
-                new Font("Segoe UI", 14),
-                whiteBrush,
-                new PointF(Width * EnlargeFactor - 260 + 1, Height * EnlargeFactor - 60 + 1)
+                $"schoder.uk {SignedDateTime:yyyyMMddHHmmss}",
+                new Font("Segoe UI", 14), whiteBrush, SignArea, sf
             );
             using var blackBrush = new SolidBrush(color2);
             gr.DrawString
             (
-                $"schoder {signedDate:yyyyMMddHHmmss}",
-                new Font("Segoe UI", 14),
-                blackBrush,
-                new PointF(Width * EnlargeFactor - 260, Height * EnlargeFactor - 60)
+                $"schoder.uk {SignedDateTime:yyyyMMddHHmmss}",
+                new Font("Segoe UI", 14), blackBrush, signArea1, sf
             );
         }
 

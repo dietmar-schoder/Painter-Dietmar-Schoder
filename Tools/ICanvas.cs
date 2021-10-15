@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace Painter_Dietmar_Schoder.Tools
 {
@@ -7,7 +8,10 @@ namespace Painter_Dietmar_Schoder.Tools
         int Width { get; set; }
         int Height { get; set; }
         int EnlargeFactor { get; set; }
-        Bitmap Bitmap { get; set; }
+        public Bitmap InputBitmap { get; set; }
+        public Bitmap Bitmap { get; set; }
+        public DateTime SignedDateTime { get; set; }
+        public Rectangle SignArea { get; set; }
 
         void FillWithBrush(Brush brush);
 
