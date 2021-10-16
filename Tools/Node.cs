@@ -16,6 +16,13 @@ namespace Painter_Dietmar_Schoder.Tools
             Y = Parent.Y - y;
         }
 
+        public Node(Node parent, Vector vector)
+        {
+            Parent = parent;
+            X = Parent.X + vector.X;
+            Y = Parent.Y + vector.Y;
+        }
+
         public Node(int x, int y)
         {
             X = x;
@@ -25,6 +32,13 @@ namespace Painter_Dietmar_Schoder.Tools
         public Node AddChild(int x, int y)
         {
             var child = new Node(this, x, y);
+            Children.Add(child);
+            return child;
+        }
+
+        public Node AddChild(Vector vector)
+        {
+            var child = new Node(this, vector);
             Children.Add(child);
             return child;
         }

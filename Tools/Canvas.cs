@@ -43,20 +43,20 @@ namespace Painter_Dietmar_Schoder.Tools
         public void SignDrawing(Color color1, Color color2)
         {
             var sf = new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center };
-            var signArea1 = new Rectangle(SignArea.X + 1, SignArea.Y + 1, SignArea.Width, SignArea.Height);
+            var signArea2 = new Rectangle(SignArea.X - 1, SignArea.Y + 1, SignArea.Width, SignArea.Height);
             using Graphics gr = Graphics.FromImage(Bitmap);
             gr.SmoothingMode = SmoothingMode.HighQuality;
-            using var whiteBrush = new SolidBrush(color1);
+            using var brush1 = new SolidBrush(color1);
             gr.DrawString
             (
                 $"schoder.uk {SignedDateTime:yyyyMMddHHmmss}",
-                new Font("Segoe UI", 14), whiteBrush, SignArea, sf
+                new Font("Segoe UI", 14), brush1, SignArea, sf
             );
-            using var blackBrush = new SolidBrush(color2);
+            using var brush2 = new SolidBrush(color2);
             gr.DrawString
             (
                 $"schoder.uk {SignedDateTime:yyyyMMddHHmmss}",
-                new Font("Segoe UI", 14), blackBrush, signArea1, sf
+                new Font("Segoe UI", 14), brush2, signArea2, sf
             );
         }
 
