@@ -19,16 +19,20 @@ namespace Painter_Dietmar_Schoder.Tools
             Y = y2 - y1;
         }
 
-        public Vector Rotated(float degrees)
+        public Vector Rotated(double degrees)
         {
             double angle = Math.PI * degrees / 180.0;
-            return new Vector((int)(Math.Cos(angle) * X - Math.Sin(angle) * Y), (int)(Math.Sin(angle) * X + Math.Cos(angle) * Y));
+            return new Vector
+            (
+                (int)Math.Round(Math.Cos(angle) * X - Math.Sin(angle) * Y, MidpointRounding.AwayFromZero),
+                (int)Math.Round(Math.Sin(angle) * X + Math.Cos(angle) * Y, MidpointRounding.AwayFromZero)
+            );
         }
 
-        public Vector NewLength(float percent)
+        public Vector NewLength(double percent)
         {
-            X = (int)(X * percent / 100);
-            Y = (int)(Y * percent / 100);
+            X = (int)Math.Round(X * percent / 100, MidpointRounding.AwayFromZero);
+            Y = (int)Math.Round(Y * percent / 100, MidpointRounding.AwayFromZero);
             return this;
         }
     }
