@@ -13,10 +13,10 @@ namespace Painter_Dietmar_Schoder.Painters.Square
         private readonly Random _rnd = new Random();
         private bool[,] _referenceBitmap;
         private int _startX, _startY;
-        private int _branchLength = 10;
-        private int _maxDepth = 1000;
-        private int _angle = 90;
-        private double _density = 8;
+        private int _branchLength = 35;
+        private int _maxDepth = 2000;
+        private int _angle = 19;
+        private double _density = 30;
         private bool _bezier = true;
 
         public TreePainter003()
@@ -42,7 +42,7 @@ namespace Painter_Dietmar_Schoder.Painters.Square
                 using var gr = Graphics.FromImage(_canvas.Bitmap);
                 gr.SmoothingMode = SmoothingMode.HighQuality;
                 using var pen = new Pen(Color.Black, 1);
-                //gr.DrawCurve(pen, _pixelPath.ToArray());
+                // gr.DrawCurve(pen, _pixelPath.ToArray());
                 if ((_pixelPath.Count - 1) % 3 > 0) _pixelPath.RemoveAt(_pixelPath.Count - 1);
                 if ((_pixelPath.Count - 1) % 3 > 0) _pixelPath.RemoveAt(_pixelPath.Count - 1);
                 gr.DrawBeziers(pen, _pixelPath.ToArray());
@@ -56,8 +56,8 @@ namespace Painter_Dietmar_Schoder.Painters.Square
         private void CreateChildren(Node node, int currentDepth)
         {
             currentDepth++;
-            for (int i = -1; i < 2; i++)
-                //for (int i = _rnd.Next(-2, 0); i < _rnd.Next(1, 4); i++)
+            // for (int i = -1; i < 2; i++)
+            for (int i = _rnd.Next(-2, 0); i < _rnd.Next(1, 4); i++)
             {
                 var newChild = new Node(node, NewBranch(node, i));
                 var denseX = (int)Math.Round(newChild.X / _density, 0, MidpointRounding.AwayFromZero);

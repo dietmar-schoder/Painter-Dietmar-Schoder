@@ -11,7 +11,7 @@ namespace Painter_Dietmar_Schoder
         {
             var now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time"));
             new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree\",
-                "Tree035.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+                "Tree043.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
                 new TreePainter003(), Color.Black, Color.White).Apply();
             //new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree\",
             //    "Tree010_Amazing.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
