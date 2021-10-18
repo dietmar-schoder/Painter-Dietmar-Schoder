@@ -1,33 +1,11 @@
 ﻿using Painter_Dietmar_Schoder.Tools;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using Point = Painter_Dietmar_Schoder.Tools.Point;
 
 namespace Painter_Dietmar_Schoder.Painters.Square
 {
     public class SquarePainter001 : IPainter
     {
-        private readonly Random _rnd = new Random();
-        private readonly List<int>[] _dicePointsX = new List<int>[]
-        {
-                new List<int> { 2 },
-                new List<int> { 1, 3 },
-                new List<int> { 1, 2, 3 },
-                new List<int> { 1, 3, 1, 3 },
-                new List<int> { 1, 3, 2, 1, 3 },
-                new List<int> { 1, 1, 1, 3, 3, 3 },
-        };
-        private readonly List<int>[] _dicePointsY = new List<int>[]
-        {
-                new List<int> { 2 },
-                new List<int> { 1, 3 },
-                new List<int> { 1, 2, 3 },
-                new List<int> { 1, 1, 3, 3 },
-                new List<int> { 1, 1, 2, 3, 3 },
-                new List<int> { 1, 2, 3, 1, 2, 3 },
-        };
         private readonly int _squareSizeFactor;
 
         public SquarePainter001(int squareSizeFactor)
