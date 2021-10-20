@@ -6,12 +6,14 @@ namespace Painter_Dietmar_Schoder.Tools
     {
         public int X { get; set; }
         public int Y { get; set; }
+        public int Level { get; set; }
         public Node Parent { get; set; }
         public List<Node> Children{ get; set; } = new List<Node>();
 
         public Node(Node parent, int x, int y)
         {
             Parent = parent;
+            Level = parent.Level + 1;
             X = Parent.X + x;
             Y = Parent.Y - y;
         }
@@ -19,6 +21,7 @@ namespace Painter_Dietmar_Schoder.Tools
         public Node(Node parent, Vector vector)
         {
             Parent = parent;
+            Level = parent.Level + 1;
             X = Parent.X + vector.X;
             Y = Parent.Y + vector.Y;
         }

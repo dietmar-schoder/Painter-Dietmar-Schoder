@@ -10,9 +10,16 @@ namespace Painter_Dietmar_Schoder
         public static void Main(string[] args)
         {
             var now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time"));
-            new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree\",
-                "Tree043.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
-                new TreePainter003(), Color.Black, Color.White).Apply();
+            new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree2\DSC04611-2.jpg",
+                @$"C:\Users\dietm\OneDrive\Bilder\random\tree2\",
+                "Tree305.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+                new TreeInputPainter001(), Color.Black, Color.Black, Color.White).Apply();
+            //new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree2\",
+            //    "Tree203.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+            //    new TreePainter004(), Color.Black, Color.White).Apply();
+            //new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree\",
+            //    "Tree043.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+            //    new TreePainter003(), Color.Black, Color.White).Apply();
             //new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree\",
             //    "Tree010_Amazing.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
             //    new TreePainter002(), Color.Black, Color.White).Apply();
