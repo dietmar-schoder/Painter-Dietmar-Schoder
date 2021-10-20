@@ -10,10 +10,28 @@ namespace Painter_Dietmar_Schoder
         public static void Main(string[] args)
         {
             var now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time"));
-            new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree2\DSC04611-2.jpg",
+            new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree2\DSC04611.jpg",
                 @$"C:\Users\dietm\OneDrive\Bilder\random\tree2\",
-                "Tree305.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
-                new TreeInputPainter001(), Color.Black, Color.Black, Color.White).Apply();
+                "Tree510.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+                new TreeInputPainter002(), Color.White, Color.Black, Color.White).Apply();
+            //new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree2\DSC04611.jpg",
+            //    @$"C:\Users\dietm\OneDrive\Bilder\random\tree2\",
+            //    "Tree507.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+            //    new TreeInputPainter001(), Color.Black, Color.Black, Color.White).Apply();
+            //new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree2\DSC04611.jpg",
+            //    @$"C:\Users\dietm\OneDrive\Bilder\random\tree2\",
+            //    "Tree503.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+            //    new TreeInputPainter001(), Color.Black, Color.Black, Color.White).Apply();
+            //new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree2\",
+            //    "Tree428.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+            //    new TreePainter006(), Color.White, Color.Black, Color.White).Apply();
+            //new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree2\",
+            //    "Tree407.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+            //    new TreePainter005(), Color.White, Color.Black, Color.White).Apply();
+            //new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree2\DSC04611-2.jpg",
+            //    @$"C:\Users\dietm\OneDrive\Bilder\random\tree2\",
+            //    "Tree305.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+            //    new TreeInputPainter001(), Color.Black, Color.Black, Color.White).Apply();
             //new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree2\",
             //    "Tree203.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
             //    new TreePainter004(), Color.Black, Color.White).Apply();

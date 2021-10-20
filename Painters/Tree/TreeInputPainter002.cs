@@ -6,7 +6,7 @@ using System.Drawing.Drawing2D;
 
 namespace Painter_Dietmar_Schoder.Painters.Square
 {
-    public class TreeInputPainter001 : IPainter
+    public class TreeInputPainter002 : IPainter
     {
         private Bitmap _inputBitmap;
         private ICanvas _canvas;
@@ -17,14 +17,14 @@ namespace Painter_Dietmar_Schoder.Painters.Square
 
         //private int[] _branchIndices = new int[] { 0, -1, 1 };
         private int[] _branchIndices = new int[] { 0, -1, 1, -2, 2 };
-        private int _margin = 30;
-        private int _branchLength = 15;
-        private int _maxDepth = 50;
-        private int _angle = 39;
-        private int _density = 14;
+        private int _margin = 10;
+        private int _branchLength = 30;
+        private int _maxDepth = 150;
+        private int _angle = 37;
+        private int _density = 10;
         private bool _bezier = false;
 
-        public TreeInputPainter001()
+        public TreeInputPainter002()
         {
         }
 
@@ -34,7 +34,7 @@ namespace Painter_Dietmar_Schoder.Painters.Square
             _inputBitmap = canvas.InputBitmap;
             _densityHalf = _density / 2;
             _referenceBitmap = new Bitmap(canvas.Width, canvas.Height);
-            var root = new Node(canvas.Width / 2, canvas.Height / 2 + _branchLength);
+            var root = new Node(canvas.Width / 2 + 6, canvas.Height / 2 + _branchLength);
             //var root = new Node(60, canvas.Height - 60);
             var rootTop = root.AddChild(0, _branchLength);
 
@@ -43,21 +43,21 @@ namespace Painter_Dietmar_Schoder.Painters.Square
                 CreateChildren(rootTop, i);
             }
 
-            //if (_bezier)
-            //{
-            //    DrawTree2(rootTop);
-            //    using var gr = Graphics.FromImage(_canvas.Bitmap);
-            //    gr.SmoothingMode = SmoothingMode.HighQuality;
-            //    using var pen = new Pen(Color.Black, 1);
-            //    // gr.DrawCurve(pen, _pixelPath.ToArray());
-            //    if ((_pixelPath.Count - 1) % 3 > 0) _pixelPath.RemoveAt(_pixelPath.Count - 1);
-            //    if ((_pixelPath.Count - 1) % 3 > 0) _pixelPath.RemoveAt(_pixelPath.Count - 1);
-            //    gr.DrawBeziers(pen, _pixelPath.ToArray());
-            //}
-            //else
-            //{
-            //    DrawTree(rootTop);
-            //}
+            if (_bezier)
+            {
+                DrawTree2(rootTop);
+                using var gr = Graphics.FromImage(_canvas.Bitmap);
+                gr.SmoothingMode = SmoothingMode.HighQuality;
+                using var pen = new Pen(Color.Black, 1);
+                // gr.DrawCurve(pen, _pixelPath.ToArray());
+                if ((_pixelPath.Count - 1) % 3 > 0) _pixelPath.RemoveAt(_pixelPath.Count - 1);
+                if ((_pixelPath.Count - 1) % 3 > 0) _pixelPath.RemoveAt(_pixelPath.Count - 1);
+                gr.DrawBeziers(pen, _pixelPath.ToArray());
+            }
+            else
+            {
+                DrawTree(rootTop);
+            }
         }
 
         private void CreateChildren(Node node, int currentDepth)
@@ -165,8 +165,9 @@ namespace Painter_Dietmar_Schoder.Painters.Square
             using var gr = Graphics.FromImage(_canvas.Bitmap);
             gr.SmoothingMode = SmoothingMode.HighQuality;
             using var brush = new SolidBrush(inputColor);
-            gr.FillEllipse(brush, new Rectangle(x - _densityHalf / 2, y - _densityHalf / 2, _densityHalf, _densityHalf));
-            // gr.FillRectangle(brush, new Rectangle(x - _densityHalf / 2, y - _densityHalf / 2, _densityHalf, _densityHalf));
+            //gr.FillEllipse(brush, new Rectangle(x - _densityHalf / 2, y - _densityHalf / 2, _densityHalf, _densityHalf));
+            //gr.FillRectangle(brush, new Rectangle(x - _densityHalf / 2, y - _densityHalf / 2, _densityHalf, _densityHalf));
+            gr.FillRectangle(brush, new Rectangle(x - _densityHalf, y - _densityHalf, _density, _density));
         }
     }
 }
