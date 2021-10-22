@@ -8,6 +8,7 @@ namespace Painter_Dietmar_Schoder.Tools
         public int X { get; set; }
         public int Y { get; set; }
         public int Level { get; set; }
+        public Color StartColor { get; set; }
         public Color Color { get; set; }
         public Vector Vector { get; set; }
         public Node2 Parent { get; set; }
@@ -25,6 +26,7 @@ namespace Painter_Dietmar_Schoder.Tools
         {
             Parent = parent;
             Parent.Children.Add(this);
+            StartColor = parent.StartColor;
             Color = parent.Color;
             Level = parent.Level + 1;
         }
