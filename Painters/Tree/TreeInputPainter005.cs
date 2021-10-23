@@ -161,6 +161,9 @@ namespace Painter_Dietmar_Schoder.Painters.Square
             using var gr = Graphics.FromImage(_canvas.Bitmap);
             gr.SmoothingMode = SmoothingMode.HighQuality;
             using var pen = new Pen(node.Color, 5);
+            pen.StartCap = LineCap.Round;
+            pen.EndCap = LineCap.Round;
+            pen.LineJoin = LineJoin.Round;
             if (_curves) gr.DrawCurve(pen, _pixelPath.ToArray());
             else gr.DrawLines(pen, _pixelPath.ToArray());
             _pixelPath = new List<PointF>();
