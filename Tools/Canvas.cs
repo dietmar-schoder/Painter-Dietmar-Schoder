@@ -25,12 +25,12 @@ namespace Painter_Dietmar_Schoder.Tools
 
         public Canvas(string path, string fileName, int width, int height, int enlargeFactor, DateTime signedDateTime, Rectangle signArea)
         {
-            Width = width;
-            Height = height;
+            Width = width * enlargeFactor;
+            Height = height * enlargeFactor;
             EnlargeFactor = enlargeFactor;
             Bitmap = new Bitmap(width * enlargeFactor, height * enlargeFactor);
             SignedDateTime = signedDateTime;
-            SignArea = signArea;
+            SignArea = new Rectangle(signArea.X * enlargeFactor, signArea.Y * enlargeFactor, signArea.Width * enlargeFactor, signArea.Height * enlargeFactor);
             _pathAndFileName = path + fileName;
         }
 

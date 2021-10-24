@@ -7,14 +7,26 @@ namespace Painter_Dietmar_Schoder
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             var now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time"));
-            new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree3\DSC04611.jpg",
-                @$"C:\Users\dietm\OneDrive\Bilder\random\tree4\",
-                "Tree734.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
-                new TreeInputPainter005(), Color.FromArgb(255, 16, 16, 16), Color.White, Color.Gray).Apply();
+            new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree5\",
+                "Tree861.png", 2280, 1282, enlargeFactor: 8, now, new Rectangle(0, 1282 - 20, 2280 - 9, 22)),
+                new TreePainter009(), Color.White, Color.Black, Color.FromArgb(255, 200, 200, 200)).Apply();
 
+            //new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree5\",
+            //    "Tree842.png", 2280, 1282, enlargeFactor: 4, now, new Rectangle(0, 1282 - 20, 2280 - 9, 22)),
+            //    new TreePainter008(), Color.White, Color.Black, Color.FromArgb(255, 200, 200, 200)).Apply();
+
+            //new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree5\",
+            //    "Tree820.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+            //    new TreePainter007(), Color.White, Color.Black, Color.FromArgb(255, 200, 200, 200)).Apply();
+
+            // Daniel Finch abstract
+            //new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree3\DSC04611.jpg",
+            //    @$"C:\Users\dietm\OneDrive\Bilder\random\tree4\",
+            //    "Tree734.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+            //    new TreeInputPainter005(), Color.FromArgb(255, 16, 16, 16), Color.White, Color.Gray).Apply();
 
             //new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree3\DSC04611.jpg",
             //    @$"C:\Users\dietm\OneDrive\Bilder\random\tree4\",
