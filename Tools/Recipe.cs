@@ -32,7 +32,14 @@ namespace Painter_Dietmar_Schoder
 
         public void Apply()
         {
-            _canvas.FillWithBrush(new SolidBrush(_background));
+            if (string.IsNullOrEmpty(_canvas.BackgroundImageFileName))
+            {
+                _canvas.FillWithBrush(new SolidBrush(_background));
+            }
+            else
+            {
+                _canvas.FillWithImage(_canvas.BackgroundImageFileName);
+            }
             _painter.DrawOnCanvas(_canvas);
             _canvas.SignDrawing(_signColor1, _signColor2);
             _canvas.Save();

@@ -15,6 +15,8 @@ namespace Painter_Dietmar_Schoder.Tools
         public DateTime SignedDateTime { get; set; }
         public Rectangle SignArea { get; set; }
 
+        public string BackgroundImageFileName { get; set; }
+
         private readonly string _pathAndFileName;
 
         public Canvas(string inputImagePathFilename, string path, string fileName, int width, int height, int enlargeFactor, DateTime signedDateTime, Rectangle signArea)
@@ -38,6 +40,12 @@ namespace Painter_Dietmar_Schoder.Tools
         {
             using Graphics gr = Graphics.FromImage(Bitmap);
             gr.FillRectangle(brush, new RectangleF(0, 0, Bitmap.Width, Bitmap.Height));
+        }
+
+        public void FillWithImage(string imageFileName)
+        {
+            using Graphics gr = Graphics.FromImage(Bitmap);
+            gr.DrawImage(Image.FromFile(imageFileName), new RectangleF(0, 0, Bitmap.Width, Bitmap.Height));
         }
 
         public void SignDrawing(Color color1, Color color2)

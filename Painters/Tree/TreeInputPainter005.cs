@@ -25,13 +25,14 @@ namespace Painter_Dietmar_Schoder.Painters.Square
         //private int[] _branchAngles = new int[] { 0, 50, 100, 150, 200, 250, 300, 350 };
 
         private int _margin = 10;
-        private int _branchLength = 50;
-        private int _maxDepth = 200;
-        private int _density = 15;
-        private int _tolerance = 40;
+        private int _branchLength = 15;
+        private int _density = 2;
+        private int _maxDepth = 500;
+        private int _tolerance = 30;
+        private int _penThickness = 30;
         private bool _bezier = false;
         private bool _curves = true;
-        private bool _paintDots = true;
+        private bool _paintDots = false;
 
         public TreeInputPainter005() { }
 
@@ -65,8 +66,12 @@ namespace Painter_Dietmar_Schoder.Painters.Square
                         if (_pixelPath.Count < 4) { continue; }
                         using var gr = Graphics.FromImage(_canvas.Bitmap);
                         gr.SmoothingMode = SmoothingMode.HighQuality;
-                        using var pen = new Pen(Color.Gray, 1);
-                        // gr.DrawCurve(pen, _pixelPath.ToArray());
+                        //using var pen = new Pen(Color.Black, _penThickness);
+                        //using var pen = new Pen(root.Color, _penThickness);
+                        using var pen = new Pen(Color.FromArgb(128, root.Color.R, root.Color.G, root.Color.B), _penThickness);
+                        pen.StartCap = LineCap.Round;
+                        pen.EndCap = LineCap.Round;
+                        pen.LineJoin = LineJoin.Round;
                         if ((_pixelPath.Count - 1) % 3 > 0) _pixelPath.RemoveAt(_pixelPath.Count - 1);
                         if ((_pixelPath.Count - 1) % 3 > 0) _pixelPath.RemoveAt(_pixelPath.Count - 1);
                         gr.DrawBeziers(pen, _pixelPath.ToArray());
@@ -105,11 +110,11 @@ namespace Painter_Dietmar_Schoder.Painters.Square
             {
                 for (int i = 0; i < _branchAngles.Length - 1; i++)
                 {
-                    // var angleIndex = _rnd.Next(0, _branchAngles.Length);
-                    //var angleIndex = _branchAngles[i];
-                    //if (!TryGetNewChild(node, _branchAngles[angleIndex], out var newChild)) { continue; }
-                    if (!TryGetNewChild(node, _branchAngles[i], out var newChild)) { continue; }
-                    //newChild.Color = _inputBitmap.GetPixel(newChild.X, newChild.Y);
+                    var angleIndex = _rnd.Next(0, _branchAngles.Length);
+                    if (!TryGetNewChild(node, _branchAngles[angleIndex], out var newChild)) { continue; }
+                    
+                    //if (!TryGetNewChild(node, _branchAngles[i], out var newChild)) { continue; }
+                    newChild.Color = _inputBitmap.GetPixel(newChild.X, newChild.Y);
                     SetAreaToCovered(node.X, node.Y, newChild.X, newChild.Y);
                 }
             }
@@ -160,7 +165,8 @@ namespace Painter_Dietmar_Schoder.Painters.Square
             if (_pixelPath.Count < 2) { return; }
             using var gr = Graphics.FromImage(_canvas.Bitmap);
             gr.SmoothingMode = SmoothingMode.HighQuality;
-            using var pen = new Pen(node.Color, 5);
+            //using var pen = new Pen(node.Color, _penThickness);
+            using var pen = new Pen(Color.FromArgb(128, node.Color.R, node.Color.G, node.Color.B), _penThickness);
             pen.StartCap = LineCap.Round;
             pen.EndCap = LineCap.Round;
             pen.LineJoin = LineJoin.Round;
@@ -238,7 +244,7 @@ namespace Painter_Dietmar_Schoder.Painters.Square
             using var gr = Graphics.FromImage(_canvas.Bitmap);
             gr.SmoothingMode = SmoothingMode.HighQuality;
             using var brush = new SolidBrush(node.Color);
-            gr.FillRectangle(brush, new Rectangle(node.X - 2, node.Y - 2, 5, 5));
+            gr.FillRectangle(brush, new Rectangle(node.X - 10, node.Y - 10, 21, 21));
         }
 
         private int XyToPixelNumber(int x, int y)

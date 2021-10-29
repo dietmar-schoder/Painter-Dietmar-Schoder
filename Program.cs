@@ -10,9 +10,21 @@ namespace Painter_Dietmar_Schoder
         public static void Main()
         {
             var now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time"));
-            new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree5\",
-                "Tree861.png", 2280, 1282, enlargeFactor: 8, now, new Rectangle(0, 1282 - 20, 2280 - 9, 22)),
-                new TreePainter009(), Color.White, Color.Black, Color.FromArgb(255, 200, 200, 200)).Apply();
+            new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree6\DSC05140_COLOR.jpg",
+                @$"C:\Users\dietm\OneDrive\Bilder\random\tree6\",
+                "Tree796.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+                //{ BackgroundImageFileName = @"C:\Users\dietm\OneDrive\Bilder\random\tree6\DSC05140.jpg" },
+                new TreeInputPainter005(), Color.FromArgb(255, 0, 0, 0), Color.White, Color.Gray).Apply();
+
+            //new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree6\DSC05140_COLOR.jpg",
+            //    @$"C:\Users\dietm\OneDrive\Bilder\random\tree6\",
+            //    "Tree772.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85))
+            //    { BackgroundImageFileName = @"C:\Users\dietm\OneDrive\Bilder\random\tree6\DSC05140.jpg" },
+            //    new TreeInputPainter005(), Color.FromArgb(255, 16, 16, 16), Color.White, Color.Gray).Apply();
+
+            //new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree5\",
+            //    "Tree861.png", 2280, 1282, enlargeFactor: 8, now, new Rectangle(0, 1282 - 20, 2280 - 9, 22)),
+            //    new TreePainter009(), Color.White, Color.Black, Color.FromArgb(255, 200, 200, 200)).Apply();
 
             //new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree5\",
             //    "Tree842.png", 2280, 1282, enlargeFactor: 4, now, new Rectangle(0, 1282 - 20, 2280 - 9, 22)),

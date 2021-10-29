@@ -13,7 +13,11 @@ namespace Painter_Dietmar_Schoder.Tools
         public DateTime SignedDateTime { get; set; }
         public Rectangle SignArea { get; set; }
 
+        public string BackgroundImageFileName { get; set; }
+
         void FillWithBrush(Brush brush);
+
+        void FillWithImage(string imageFileName);
 
         void SignDrawing(Color color1, Color color2);
 
