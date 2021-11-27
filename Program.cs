@@ -10,11 +10,31 @@ namespace Painter_Dietmar_Schoder
         public static void Main()
         {
             var now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time"));
-            new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree6\DSC05140_COLOR.jpg",
-                @$"C:\Users\dietm\OneDrive\Bilder\random\tree6\",
-                "Tree796.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+            new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree10\Leon0002.jpg",
+                @$"C:\Users\dietm\OneDrive\Bilder\random\tree10\",
+                "Tree1066.png", 3000, 2000, enlargeFactor: 2, now, new Rectangle(0, 2000 - 40, 3000 - 20, 40)),
                 //{ BackgroundImageFileName = @"C:\Users\dietm\OneDrive\Bilder\random\tree6\DSC05140.jpg" },
-                new TreeInputPainter005(), Color.FromArgb(255, 0, 0, 0), Color.White, Color.Gray).Apply();
+                new TreeInputPainter008(), Color.FromArgb(255, 127, 127, 127), Color.Black, Color.White).Apply();
+
+            //var now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time"));
+            //new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree8\IMG_20211009_135042_1140.jpg",
+            //    @$"C:\Users\dietm\OneDrive\Bilder\random\tree8\",
+            //    "Tree914.png", 1140, 2028, enlargeFactor: 4, now, new Rectangle(0, 2028 - 40, 1140 - 20, 40)),
+            //    //{ BackgroundImageFileName = @"C:\Users\dietm\OneDrive\Bilder\random\tree6\DSC05140.jpg" },
+            //    new TreeInputPainter006(), Color.FromArgb(255, 0, 0, 0), Color.Teal, Color.White).Apply();
+
+            //var now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time"));
+            //new Recipe(new Canvas(@$"C:\Users\dietm\OneDrive\Bilder\random\tree7\",
+            //    "Tree829.png", 2280, 4000, enlargeFactor: 2, now, new Rectangle(0, 4000 - 50, 2280 - 20, 40)),
+            //    //{ BackgroundImageFileName = @"C:\Users\dietm\OneDrive\Bilder\random\tree6\DSC05140.jpg" },
+            //    new TreePainter010(), Color.White, Color.Black, Color.White).Apply();
+
+            //var now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time"));
+            //new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree6\DSC05140_COLOR.jpg",
+            //    @$"C:\Users\dietm\OneDrive\Bilder\random\tree6\",
+            //    "Tree796.png", 2280, 1282, enlargeFactor: 1, now, new Rectangle(0, 1282 - 85, 2280 - 35, 85)),
+            //    //{ BackgroundImageFileName = @"C:\Users\dietm\OneDrive\Bilder\random\tree6\DSC05140.jpg" },
+            //    new TreeInputPainter005(), Color.FromArgb(255, 0, 0, 0), Color.White, Color.Gray).Apply();
 
             //new Recipe(new Canvas(@"C:\Users\dietm\OneDrive\Bilder\random\tree6\DSC05140_COLOR.jpg",
             //    @$"C:\Users\dietm\OneDrive\Bilder\random\tree6\",
